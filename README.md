@@ -6,4 +6,10 @@ node modules for testing an api
 Rocky is a simple tool to test your api end-points just pass url, query params and headers and validate the response using [Joi](https://github.com/hapijs/joi)
 ## tests 
 To run tests just run ```gulp test```
+## how to start
+```
+var instance = new Rocky({url: 'http://google.com', headers: {}, queryParams: {}, schema: Joi.schema, .. })
+instance.validate();
+
+```
 
