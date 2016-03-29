@@ -1,0 +1,17 @@
+{
+  "extends": "airbnb/base",
+  "globals": {
+    "BASE_ROOT": true
+  },
+  "env": {
+    node: true,
+    mocha: true
+  },
+  "ecmaFeatures": {},
+  "parser": null,
+  "rules": {
+    "new-cap": [2,{"capIsNewExceptions": ["Router", "ObjectId"]}],
+    "comma-dangle": [2, "never"],
+    "no-param-reassign": [2, {"props": false}],
+  }
+}

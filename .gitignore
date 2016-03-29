@@ -1,0 +1,8 @@
+node_modules
+.coverdata/
+reports/
+debug/
+.coverrun
+coverage/
+app/docs/
+.DS_Store
