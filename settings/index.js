@@ -16,8 +16,8 @@ gulpSettings.coverageOptions = {
     global: {
       statements: 70,
       branches: 55,
-      functions: 81,
-      lines: 72
+      functions: 70,
+      lines: 70
     }
   },
   coverageDirectory: gulpSettings.paths.coverage,

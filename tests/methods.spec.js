@@ -22,11 +22,49 @@ describe('Rocky Prototypes', function() {
   });
 
   describe('Setting Header', () => {
-    describe('When headers is a string', () => {
-      it('Should throw a new error', () => {
-        expect(instance.setHeaders('aaa')).to.throw();
-        //s(new Error('headers must be an object'));
+    describe('When Headers is an object', () => {
+      before(() => {
+        instance.setHeaders({ 'User-Agent': 'request' });
       });
+      it('Should set the header', () => {
+        expect(instance.getHeaders()).to.be.an('object');
+      });
+      it('Should have all keys', () => {
+        expect(instance.getHeaders()).to.have.all.keys('User-Agent');
+      });
+    });
+    describe('When headers is an array', () => {
+      before(() => {
+        instance.setHeaders([
+          {
+            name: 'content-type',
+            value: 'application/x-www-form-urlencoded'
+          }
+        ]);
+      });
+      it('Should set the headers', () => {
+        expect(instance.getHeaders()).to.be.an('array');
+      });
+    });
+  });
+
+  // Query params
+  describe('Settings Query Params', () => {
+    before(() => {
+      instance.setQueryParams({ userId: 1, followers: true });
+    });
+    it('Should set query params', () => {
+      expect(instance.getQueryParams()).to.be.an('object');
+    });
+  });
+
+  //formData
+  describe('formData', () => {
+    before(() => {
+      instance.setFormData({username: 'doron'});
+    });
+    it('Should be an object', () => {
+      expect(instance.getFormData()).to.be.an('object');
     });
   });
 });
