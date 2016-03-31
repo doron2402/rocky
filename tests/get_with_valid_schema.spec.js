@@ -3,33 +3,36 @@ const http = require('http');
 const joi = require('joi');
 const chai = require('chai');
 const expect = chai.expect;
-const Rocky = require('../');
+const Rocky = require('../lib/index');
 const PORT = 3005;
 const json = JSON.stringify({
   code: 'ok',
   status: 'YaY!',
-  users: ['a','b']
+  users: [
+    'a',
+    'b'
+  ]
 });
-const app = http.createServer(function (req, res) {
-  res.writeHead(200, { 'Content-Type': 'application/json'});
+const app = http.createServer((req, res) => {
+  res.writeHead(200, { 'Content-Type': 'application/json' });
   res.end(json);
 });
 
-describe('Rocky API Testing', function() {
-  describe('Test', function() {
+describe('Rocky API Testing', () => {
+  describe('Test', () => {
     const schema = {
       status: joi.string(),
       code: joi.string(),
       users: joi.array().items(joi.string())
     };
     const instance = new Rocky({
-       method: 'get',
-       url: `http://localhost:${PORT}/users`,
-       schema
-     });
+      method: 'get',
+      url: `http://localhost:${PORT}/users`,
+      schema
+    });
     let error;
     let rockyResponse = null;
-    before(function(done) {
+    before((done) => {
       app.listen(PORT, () => {
         instance.validate((err, res) => {
           if (err) {
@@ -40,7 +43,7 @@ describe('Rocky API Testing', function() {
         });
       });
     });
-    it('Error should be null', function() {
+    it('Error should be null', () => {
       expect(error).to.be.eql(undefined);
     });
     it('Should return status code 200', () => {

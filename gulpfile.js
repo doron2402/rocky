@@ -24,9 +24,7 @@ function runTests(tests) {
       dir: settings.paths.coverage,
       reportOpts: { dir: settings.paths.coverage },
       reporters: ['text', 'text-summary', 'json', 'html']
-    }))
-    .pipe(istanbul.enforceThresholds(settings.coverageOptions))
-    .on('end', () => setTimeout(process.exit, 100));
+    }));
   });
 }
 
@@ -47,14 +45,15 @@ gulp.task('jscs', () => (
 );
 
 gulp.task('tests', () => {
-   process.env.NODE_ENV = 'test';
-   return runTests(settings.paths.tests);
- });
+  process.env.NODE_ENV = 'test';
+  return runTests(settings.paths.tests);
+});
 
 gulp.task('eslint', () => (
    gulp.src(['**/*.js', '!node_modules/**', '!coverage/**'])
     .pipe(eslint())
-    .pipe(eslint.format())
+    .pipe(eslint.format('table'))
+    .pipe(eslint.failAfterError())
 ));
 
 gulp.task('test', ['lint', 'tests']);

@@ -1,12 +1,15 @@
 'use strict';
 const chai = require('chai');
 const expect = chai.expect;
-const Rocky = require('../');
+const Rocky = require('../lib');
 let instance;
-describe('Rocky Prototypes', function() {
+
+describe('Rocky Prototypes', () => {
   describe('Create Rockey instance', () => {
     before(() => {
-      instance = new Rocky({url: 'http://google.com' });
+      instance = new Rocky({
+        url: 'http://google.com'
+      });
     });
     it('Should have url', () => {
       expect(instance.getUrl()).to.be.eql('http://google.com');
@@ -58,10 +61,10 @@ describe('Rocky Prototypes', function() {
     });
   });
 
-  //formData
+  // formData
   describe('formData', () => {
     before(() => {
-      instance.setFormData({username: 'doron'});
+      instance.setFormData({ username: 'doron' });
     });
     it('Should be an object', () => {
       expect(instance.getFormData()).to.be.an('object');

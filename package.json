@@ -1,5 +1,5 @@
 {
-  "name": "rocky",
+  "name": "rocky-testapi",
   "version": "1.0.0",
   "description": "test your api request / response ",
   "main": "index.js",
@@ -25,15 +25,19 @@
   "devDependencies": {
     "eslint": "^2.5.3",
     "eslint-config-airbnb": "^6.2.0",
+    "eslint-plugin-react": "^4.2.3",
     "gulp": "^3.9.1",
     "gulp-eslint": "^2.0.0",
+    "gulp-format": "^1.0.8",
     "gulp-istanbul": "^0.10.3",
+    "gulp-jsbeautifier": "^2.0.2",
     "gulp-jscs": "^3.0.2",
     "gulp-jshint": "^2.0.0",
     "gulp-mocha": "^2.2.0",
     "isparta": "^4.0.0",
     "jshint": "^2.9.1",
-    "jshint-stylish": "^2.1.0"
+    "jshint-stylish": "^2.1.0",
+    "proxyquire": "^1.7.4"
   },
   "pre-commit": [
     "test"
