@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "gulp test",
-    "lint": "gulp lint"
+    "lint": "gulp lint",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "keywords": [
     "test",
@@ -20,7 +22,8 @@
     "chai": "^3.5.0",
     "joi": "^8.0.5",
     "lodash": "^4.6.1",
-    "request": "^2.69.0"
+    "request": "^2.69.0",
+    "snyk": "^1.317.0"
   },
   "devDependencies": {
     "eslint": "^2.5.3",
@@ -37,5 +40,6 @@
   },
   "pre-commit": [
     "test"
-  ]
+  ],
+  "snyk": true
 }
